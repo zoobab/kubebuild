@@ -25,7 +25,7 @@ if [[ "$REPO_URL" != http?(s)://*.git ]]; then
 fi
 
 echo "[1/2] Templating..."
-sed -e "s/{{{repo_url}}}/caca/g" $TEMPLATE > $WORKDIR/$FINAL
+sed -e "s#{{{repo_url}}}#$REPO_URL#g" $TEMPLATE > $WORKDIR/$FINAL
 
 echo "[2/2] Launching in kubernetes..."
 kubectl apply -f $FINAL_PATH
