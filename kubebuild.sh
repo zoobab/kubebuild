@@ -3,10 +3,19 @@
 
 set -e
 
+check_command() {
+PROGRAM=$1
+command -v $PROGRAM >/dev/null 2>&1 || { echo "ERROR, this script requires $PROGRAM but it's not installed.  Aborting." >&2; exit 1; }
+}
+
+check_command kubectl
+check_command sed
+
 REPO_URL="$1"
 WORKDIR="/tmp"
-FINAL="kubebuild.yaml"
-TEMPLATE="$FINAL.tmpl"
+NAME="kubebuild"
+FINAL="$NAME.yaml"
+TEMPLATE="$NAME.tmpl"
 FINAL_PATH="$WORKDIR/$FINAL"
 
 if [[ "$REPO_URL" != http?(s)://*.git ]]; then
