@@ -1,11 +1,14 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: kubebuild-12345
+  name: kubebuild
 spec:
   containers:
   - image: zoobab/dind:17.10-alpine
     name: kubebuild
+    env:
+      - name: REPONAME
+        value: {{{repo_name}}}
     securityContext:
       privileged: true
     volumeMounts:

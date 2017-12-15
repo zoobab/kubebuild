@@ -25,3 +25,4 @@ Todo
 * add a timeout to kill the pod in case the build takes too much time
 * add an argument to specify the amount of resources you want to allocate to the build
 * specify a registry to push to (as argument or a config file)
+* specify which commithash or branch to build
