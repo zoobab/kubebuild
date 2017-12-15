@@ -26,3 +26,4 @@ Todo
 * add an argument to specify the amount of resources you want to allocate to the build
 * specify a registry to push to (as argument or a config file)
 * specify which commithash or branch to build
+* check if kubectl is working (cluster-info might be enough)
