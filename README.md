@@ -27,3 +27,5 @@ Todo
 * specify a registry to push to (as argument or a config file)
 * specify which commithash or branch to build
 * check if kubectl is working (cluster-info might be enough)
+* problem: gitRepo in kubernetes seems to hang forever if the repo is not existing
+* problem: wait for the pod to be up and in a running state with a timeout

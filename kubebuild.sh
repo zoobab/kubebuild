@@ -27,9 +27,12 @@ fi
 REPONAME_DOTGIT="$(basename $REPO_URL)"
 REPO_NAME=$(echo $REPONAME_DOTGIT | sed -e "s/.git//g")
 
-echo -ne "[1/2] Templating (with repo named '$REPO_NAME')..."
-sed -e "s#{{{repo_url}}}#$REPO_URL#g" -e "s#{{{repo_name}}}#$REPO_NAME#g" $TEMPLATE > $WORKDIR/$FINAL
+echo -ne "[1/3] Templating (with repo named '$REPO_NAME')..."
+sed -e "s#{{{repo_url}}}#$REPO_URL#g" -e "s#{{{repo_name}}}#$REPO_NAME#g" $TEMPLATE > $FINAL_PATH
 echo -ne "OK\n"
 
-echo "[2/2] Launching in kubernetes..."
+echo "[2/3] Launching in kubernetes..."
 kubectl apply -f $FINAL_PATH
+
+echo "[3/3] Tail the log..."
+kubectl logs -f kubebuild
