@@ -29,3 +29,8 @@ Todo
 * check if kubectl is working (cluster-info might be enough)
 * problem: gitRepo in kubernetes seems to hang forever if the repo is not existing
 * problem: wait for the pod to be up and in a running state with a timeout
+
+Links
+=====
+
+* similar project: https://github.com/dminkovsky/kube-cloud-build
