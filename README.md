@@ -17,6 +17,54 @@ Usage
 $ ./kubebuild.sh http://github.com/zoobab/versaloon.git
 ```
 
+Example
+=======
+
+```
+$ ./kubebuild.sh https://github.com/zoobab/versaloon.git
+[1/4] Templating (with repo named 'versaloon')...OK
+[2/4] Launching in kubernetes...
+pod "kubebuild" created
+[3/4] Waiting for pod, current status ContainerCreating
+[3/4] Waiting for pod, current status ContainerCreating
+[3/4] Waiting for pod, current status ContainerCreating
+[4/4] Tail the log...
+Launching docker...OK
+REPONAME is defined as versaloon, trying to build it...
+Sending build context to Docker daemon  23.44MB
+Step 1/16 : FROM ubuntu:14.04
+14.04: Pulling from library/ubuntu
+c954d15f947c: Pulling fs layer
+c3688624ef2b: Pulling fs layer
+848fe4263b3b: Pulling fs layer
+23b4459d3b04: Pulling fs layer
+36ab3b56c8f1: Pulling fs layer
+23b4459d3b04: Waiting
+36ab3b56c8f1: Waiting
+848fe4263b3b: Verifying Checksum
+848fe4263b3b: Download complete
+c3688624ef2b: Verifying Checksum
+c3688624ef2b: Download complete
+23b4459d3b04: Verifying Checksum
+23b4459d3b04: Download complete
+36ab3b56c8f1: Verifying Checksum
+36ab3b56c8f1: Download complete
+c954d15f947c: Verifying Checksum
+c954d15f947c: Download complete
+c954d15f947c: Pull complete
+c3688624ef2b: Pull complete
+848fe4263b3b: Pull complete
+23b4459d3b04: Pull complete
+36ab3b56c8f1: Pull complete
+Digest: sha256:e1c8bff470c771c6e86d3166607e2c74e6986b05bf339784a9cab70e0e03c7c3
+Status: Downloaded newer image for ubuntu:14.04
+ ---> dc4491992653
+Step 2/16 : MAINTAINER Benjamin Henrion <zoobab@gmail.com>
+[...]
+```
+
+Add more logs here...
+
 Todo
 ====
 
