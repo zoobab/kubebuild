@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: kubebuild
+  name: kubebuild-{{{buildnumber}}}
 spec:
   containers:
   - image: zoobab/dind:17.10-alpine
