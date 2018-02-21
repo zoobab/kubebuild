@@ -82,3 +82,4 @@ Links
 =====
 
 * similar project: https://github.com/dminkovsky/kube-cloud-build
+* CloudBees Docker Build and Publish plugin: https://wiki.jenkins.io/display/JENKINS/CloudBees+Docker+Build+and+Publish+plugin
