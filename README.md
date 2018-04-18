@@ -81,5 +81,6 @@ Todo
 Links
 =====
 
+* Kaniko: build images inside Kubernetes without privileged mode https://cloudplatform.googleblog.com/2018/04/introducing-kaniko-Build-container-images-in-Kubernetes-and-Google-Container-Builder-even-without-root-access.html
 * similar project: https://github.com/dminkovsky/kube-cloud-build
 * CloudBees Docker Build and Publish plugin: https://wiki.jenkins.io/display/JENKINS/CloudBees+Docker+Build+and+Publish+plugin
