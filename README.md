@@ -78,6 +78,19 @@ Todo
 * problem: gitRepo in kubernetes seems to hang forever if the repo is not existing
 * problem: wait for the pod to be up and in a running state with a timeout
 * run the final image on the cluster
+* document how to run it in OpenShift cluster, which disables non-root containers by default
+
+Openshift
+=========
+
+Openshift disables non-root containers by default:
+
+```
+$ ./kubebuild.sh https://github.com/zoobab/versaloon.git
+[1/4] Templating (with repo named 'versaloon')...OK
+[2/4] Launching pod 'kubebuild-7588' in kubernetes...
+Error from server (Forbidden): error when creating "/tmp/kubebuild.yaml": pods "kubebuild-7588" is forbidden: unable to validate against any security context constraint: [spec.volumes[0]: Invalid value: "gitRepo": gitRepo volumes are not allowed to be used spec.containers[0].securityContext.privileged: Invalid value: true: Privileged containers are not allowed]
+```
 
 Links
 =====
