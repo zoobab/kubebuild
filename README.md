@@ -80,6 +80,7 @@ Todo
 * run the final image on the cluster
 * document how to run it in OpenShift cluster, which disables non-root containers by default
 * git clone locally and push the repo with some transport (kubectl equivalent for scp) to the cluster
+* use a job instead of a pod
 
 Openshift
 =========
