@@ -1,0 +1,38 @@
+# Example of using an InitContainer in place of a GitRepo volume.
+# Unilke GitRepo volumes, this approach runs the git command in a container,
+# with the associated hardening.
+apiVersion: v1
+kind: Pod
+metadata:
+  name: git-repo-demo
+  annotations:
+    seccomp.security.alpha.kubernetes.io/pod: 'docker/default'
+spec:
+  initContainers:
+    # This container clones the desired git repo to the EmptyDir volume.
+    - name: git-clone
+      image: alpine/git # Any image with git will do
+      args:
+        - clone
+        - --single-branch
+        - --
+        - https://github.com/kubernetes/kubernetes # Your repo
+        - /repo # Put it in the volume
+      securityContext:
+        runAsUser: 1 # Any non-root user will do. Match to the workload.
+        allowPrivilegeEscalation: false
+        readOnlyRootFilesystem: true
+      volumeMounts:
+        - name: git-repo
+          mountPath: /repo
+  containers:
+    # Replace with your actual workload.
+    - name:  busybox
+      image: busybox
+      args: ['sleep', '100000'] # Do nothing
+      volumeMounts:
+        - name: git-repo
+          mountPath: /repo
+  volumes:
+    - name: git-repo
+      emptyDir: {}
