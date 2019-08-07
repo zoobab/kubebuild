@@ -1,6 +1,15 @@
 Build Docker containers inside Kubernetes cluster
 =================================================
 
+Warning
+=======
+
+The GitRepo feature of Kubernetes has been deprecated:
+
+https://kubernetes.io/docs/concepts/storage/volumes/#gitrepo
+
+So I am working on a replacement, stay tuned...
+
 Requirements
 ============
 
